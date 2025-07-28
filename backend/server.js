@@ -8,7 +8,6 @@ app.use(express.json());
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-// Serve frontend build in production
 if (process.env.NODE_ENV === "production") {
   app.use(express.static(path.join(__dirname, "../build")));
 
@@ -17,7 +16,6 @@ if (process.env.NODE_ENV === "production") {
   });
 }
 
-// API route
 app.get("/api", (req, res) => {
   res.send("API is running...");
 });
